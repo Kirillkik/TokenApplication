@@ -23,6 +23,15 @@
                         </Frame>
                     </TabItem.Content>
                 </TabItem>
+            <TabItem Header="Учет">
+                <TabItem.Content>
+                    <Frame NavigationUIVisibility="Hidden">
+                        <Frame.Content>
+                            <pages:EmployeesTokenPage/>
+                        </Frame.Content>
+                    </Frame>
+                </TabItem.Content>
+            </TabItem>
             <TabItem Header="Работа с отделами">
                 <TabItem.Content>
                     <Frame NavigationUIVisibility="Hidden">
