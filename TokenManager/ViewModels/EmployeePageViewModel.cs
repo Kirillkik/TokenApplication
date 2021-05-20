@@ -88,13 +88,15 @@ namespace EmployeeManager.ViewModels
             Employees = db.Employees.Include(x => x.Department)
                                     .Include(x => x.Token)
                                     .ToArray();
+            Departments = db.Departments.ToArray();
+            Tokens = db.Tokens.ToArray();
             SelectedEmployee = new Employee();
             SelectedEmployee.Surname = "";
             SelectedEmployee.Name = "";
             SelectedEmployee.Patronumic = "";
             SelectedEmployee.Mac = "";
-            SelectedEmployee.Token = new Token();
-            SelectedEmployee.Department = new Department();
+            SelectedEmployee.Token = null;
+            SelectedEmployee.Department = null;
         }
     }
 }

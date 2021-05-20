@@ -12,8 +12,8 @@
     </Page.DataContext>
     <Grid>
         <Grid.ColumnDefinitions>
-            <ColumnDefinition></ColumnDefinition>
-            <ColumnDefinition></ColumnDefinition>
+            <ColumnDefinition Width="433*"></ColumnDefinition>
+            <ColumnDefinition Width="367*"></ColumnDefinition>
         </Grid.ColumnDefinitions>
         <Grid>
             <Grid.RowDefinitions>
@@ -28,36 +28,36 @@
                     <DataGridTextColumn Header="Имя" Binding="{Binding Path=Name}" Width="70"/>
                     <DataGridTextColumn Header="Отчество" Binding="{Binding Path=Patronumic}" Width="70"/>
                     <DataGridTextColumn Header="Отдел" Binding="{Binding Path=Department}" Width="*"/>
-                    <DataGridTextColumn Header="Mac" Binding="{Binding Path=Mac}" Width="*"/>
+                    <DataGridTextColumn Header="Рабочее место" Binding="{Binding Path=Mac}" Width="100"/>
                     <DataGridTextColumn Header="Токен" Binding="{Binding Path=Token}" Width="*"/>
                 </DataGrid.Columns>
             </DataGrid>
             <Button Grid.Row="2" Height="20" Content="Обновить" Command="{Binding UpdateEmployees}" />
         </Grid>
-        <StackPanel Grid.Column="2"
-                    VerticalAlignment="Center">
+        <StackPanel Grid.Column="1"
+                    VerticalAlignment="Center" Height="356">
             <DockPanel>
-                <Label Content="Фамилия:" Width="70"/>
+                <Label Content="Фамилия:" Width="100"/>
                 <TextBox Text="{Binding SelectedEmployee.Surname}" Margin="10"/>
             </DockPanel>
             <DockPanel>
-                <Label Content="Имя:" Width="70"/>
+                <Label Content="Имя:" Width="100"/>
                 <TextBox Text="{Binding SelectedEmployee.Name}" Margin="10"/>
             </DockPanel>
             <DockPanel>
-                <Label Content="Отчество:" Width="70"/>
+                <Label Content="Отчество:" Width="100"/>
                 <TextBox Text="{Binding SelectedEmployee.Patronumic}" Margin="10"/>
             </DockPanel>
             <DockPanel>
-                <Label Content="Отдел:" Width="70"/>
+                <Label Content="Отдел:" Width="100"/>
                 <ComboBox ItemsSource="{Binding Departments}" SelectedItem="{Binding SelectedEmployee.Department}" Margin="10"/>
             </DockPanel>
             <DockPanel>
-                <Label Content="Mac:" Width="70"/>
+                <Label Content="Рабочее место:" Width="100"/>
                 <TextBox Text="{Binding SelectedEmployee.Mac}" Margin="10"/>
             </DockPanel>
             <DockPanel>
-                <Label Content="Токен:" Width="70"/>
+                <Label Content="Токен:" Width="100"/>
                 <ComboBox ItemsSource="{Binding Tokens}" SelectedItem="{Binding SelectedEmployee.Token}" Margin="10"/>
             </DockPanel>
 
