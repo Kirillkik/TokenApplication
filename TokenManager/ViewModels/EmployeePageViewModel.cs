@@ -15,7 +15,6 @@ namespace EmployeeManager.ViewModels
     {
         [Reactive] public Employee[] Employees { get; set; }
         [Reactive] public Department[] Departments { get; set; }
-        [Reactive] public Token[] Tokens { get; set; }
         [Reactive] public Employee SelectedEmployee { get; set; } = new Employee();
 
         public EmployeePageViewModel()
@@ -25,7 +24,6 @@ namespace EmployeeManager.ViewModels
                                     .Include(x => x.Token)
                                     .ToArray();
             Departments = db.Departments.ToArray();
-            Tokens = db.Tokens.ToArray();
         }
 
         private DelegateCommand updateEmployees;
@@ -36,7 +34,6 @@ namespace EmployeeManager.ViewModels
                                     .Include(x => x.Token)
                                     .ToArray();
             Departments = db.Departments.ToArray();
-            Tokens = db.Tokens.ToArray();
         });
 
         private DelegateCommand addEmployee;
@@ -49,7 +46,6 @@ namespace EmployeeManager.ViewModels
                 Name = SelectedEmployee.Name,
                 Patronumic = SelectedEmployee.Patronumic,
                 Mac = SelectedEmployee.Mac,
-                Token = db.Tokens.Single(x => x.Id == SelectedEmployee.Token.Id),
                 Department = db.Departments.Single(x => x.Id == SelectedEmployee.Department.Id)
         };
             db.Employees.Add(employee);
@@ -66,7 +62,6 @@ namespace EmployeeManager.ViewModels
             Employee.Name = SelectedEmployee.Name;
             Employee.Patronumic = SelectedEmployee.Patronumic;
             Employee.Mac = SelectedEmployee.Mac;
-            Employee.Token = db.Tokens.Single(x => x.Id == SelectedEmployee.Token.Id);
             Employee.Department = db.Departments.Single(x => x.Id == SelectedEmployee.Department.Id);
             db.SaveChanges();
             Update();
@@ -89,7 +84,6 @@ namespace EmployeeManager.ViewModels
                                     .Include(x => x.Token)
                                     .ToArray();
             Departments = db.Departments.ToArray();
-            Tokens = db.Tokens.ToArray();
             SelectedEmployee = new Employee();
             SelectedEmployee.Surname = "";
             SelectedEmployee.Name = "";

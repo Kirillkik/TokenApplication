@@ -12,8 +12,8 @@
     </Page.DataContext>
     <Grid>
         <Grid.ColumnDefinitions>
-            <ColumnDefinition></ColumnDefinition>
-            <ColumnDefinition></ColumnDefinition>
+            <ColumnDefinition Width="131*"></ColumnDefinition>
+            <ColumnDefinition Width="69*"></ColumnDefinition>
         </Grid.ColumnDefinitions>
         <Grid>
             <Grid.RowDefinitions>
@@ -27,6 +27,8 @@
                     <DataGridTextColumn Header="Фамилия" Binding="{Binding Path=Surname}" Width="70"/>
                     <DataGridTextColumn Header="Имя" Binding="{Binding Path=Name}" Width="70"/>
                     <DataGridTextColumn Header="Отчество" Binding="{Binding Path=Patronumic}" Width="70"/>
+                    <DataGridTextColumn Header="Отдел" Binding="{Binding Path=Department}" Width="*"/>
+                    <DataGridTextColumn Header="Рабочее место" Binding="{Binding Path=Mac}" Width="100"/>
                     <DataGridTextColumn Header="Токен" Binding="{Binding Path=Token}" Width="*"/>
                 </DataGrid.Columns>
             </DataGrid>
@@ -47,13 +49,22 @@
                 <Label Content="{Binding SelectedEmployee.Patronumic}" Margin="10"/>
             </DockPanel>
             <DockPanel>
+                <Label Content="Отдел:" Width="100" Margin="10"/>
+                <Label Content="{Binding SelectedEmployee.Department}" Margin="10"/>
+            </DockPanel>
+            <DockPanel>
+                <Label Content="Рабочее место:" Width="100" Margin="10"/>
+                <Label Content="{Binding SelectedEmployee.Mac}" Margin="10"/>
+            </DockPanel>
+            <DockPanel>
                 <Label Content="Токен:" Width="100" Margin="10"/>
                 <ComboBox ItemsSource="{Binding Tokens}" SelectedItem="{Binding SelectedEmployee.Token}" Margin="10"/>
             </DockPanel>
-
-            <Button Content="Добавить" Command="{Binding AddEmployee}" Margin="10"/>
+            <DockPanel>
+                <Label Content="Токен активен до:" Width="120" Margin="10"/>
+                <Label Content="{Binding SelectedEmployee.Token.LifeDate}" Margin="10"/>
+            </DockPanel>
             <Button Content="Сохранить изменения" Command="{Binding EditEmployee}" Margin="10"/>
-            <Button Content="Удалить" Command="{Binding DeleteEmployee}" Margin="10"/>
         </StackPanel>
     </Grid>
 </Page>
