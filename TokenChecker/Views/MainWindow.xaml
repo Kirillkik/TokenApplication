@@ -3,10 +3,25 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:local="clr-namespace:TokenChecker"
+        xmlns:local="clr-namespace:TokenChecker" xmlns:cont11="clr-namespace:TokenChecker.ViewModels"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
-    <Grid>
-
-    </Grid>
+        Title="Проверка ключа" Height="220" Width="400">
+    <Window.DataContext>
+        <cont11:MainWindowViewModel/>
+    </Window.DataContext>
+    <StackPanel VerticalAlignment="Center">
+        <DockPanel Margin="20,0,20,0">
+            <Label Content="Введите фамилию:" Margin="10" Width="110"/>
+            <TextBox Text="{Binding Surname}" Margin="10"/>
+        </DockPanel>
+        <DockPanel Margin="20,0,20,0">
+            <Label Content="Введите имя:" Margin="10" Width="110"/>
+            <TextBox Text="{Binding Name}" Margin="10"/>
+        </DockPanel>
+        <DockPanel Margin="20,0,20,0">
+            <Label Content="Введите отчество:" Margin="10" Width="110"/>
+            <TextBox Text="{Binding Patronumic}" Margin="10"/>
+        </DockPanel>
+        <Button Content="Проверить данные" Command="{Binding CheckData}" Margin="30,0,30,0"/>
+    </StackPanel>
 </Window>
